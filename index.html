@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seif Aldeen Ali — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { scroll-behavior: smooth; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(5, 46, 22, 0.97), rgba(5, 46, 22, 0.97)),
+        radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(129, 140, 248, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridShift 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gridShift {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(60px, 60px); }
+    }
+
+    .shimmer {
+      background: linear-gradient(90deg, #fff 0%, #10b981 25%, #fff 50%, #10b981 75%, #fff 100%);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerMove 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmerMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .glow-emerald {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), 0 0 60px rgba(16, 185, 129, 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .glow-emerald:hover {
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.1);
+    }
+
+    .glow-indigo {
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.15), 0 0 60px rgba(129, 140, 248, 0.05);
+    }
+
+    .card-glow {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.2), 0 0 80px rgba(16, 185, 129, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .border-glow {
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      transition: border-color 0.3s ease;
+    }
+    .border-glow:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-futuristic {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-futuristic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(129, 140, 248, 0.2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .btn-futuristic:hover::before {
+      opacity: 1;
+    }
+    .btn-futuristic:hover {
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1);
+      transform: translateY(-2px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes floatDelayed {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float { animation: float 6s ease-in-out infinite; }
+    .float-delayed { animation: floatDelayed 8s ease-in-out infinite; }
+    .float-slow { animation: floatSlow 10s ease-in-out infinite; }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .glass-nav {
+      background: rgba(5, 46, 22, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-green-950 text-white antialiased">
+  <div class="grid-bg"></div>
+
+  <!-- Navigation -->
+  <header class="fixed inset-x-0 top-0 z-50 glass-nav transition-all duration-300">
+    <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Seif Aldeen Ali</span>
+          <span class="text-lg font-bold tracking-tight shimmer">Seif Aldeen Ali</span>
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" onclick="document.getElementById('mobile-menu').showModal()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200 hover:text-emerald-400 transition-colors" aria-label="Open main menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-8">
+        <a href="#" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Products</a>
+        <a href="#missions" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Mission</a>
+        <a href="#" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Support</a>
+        <a href="#aboutme" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">About</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="https://github.com/saif-alden2error" class="group relative" aria-label="GitHub Profile">
+          <img src="github.png" class="size-9 rounded-full ring-1 ring-white/10 transition-all duration-300 group-hover:ring-emerald-400/50 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]" alt="GitHub">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Dialog -->
+  <dialog id="mobile-menu" class="lg:hidden fixed inset-0 z-50 bg-transparent">
+    <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-green-950/95 backdrop-blur-xl p-6 sm:max-w-sm sm:ring-1 sm:ring-emerald-800/50">
+      <div class="flex items-center justify-between">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="text-lg font-bold tracking-tight shimmer">Seif Aldeen Ali</span>
+        </a>
+        <button type="button" onclick="document.getElementById('mobile-menu').close()" class="-m-2.5 rounded-md p-2.5 text-gray-200 hover:text-emerald-400 transition-colors" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-emerald-800/30">
+          <div class="space-y-3 py-6">
+            <a href="#" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Products</a>
+            <a href="#missions" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Mission</a>
+            <a href="#" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Support</a>
+            <a href="#aboutme" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">About</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 mx-auto max-w-5xl px-6 pt-36 pb-24 sm:pt-48 sm:pb-32 lg:pt-60 lg:pb-40">
+    <div class="absolute top-1/4 left-1/4 size-72 rounded-full bg-emerald-500/5 blur-3xl pulse-glow"></div>
+    <div class="absolute bottom-1/4 right-1/4 size-96 rounded-full bg-indigo-500/5 blur-3xl pulse-glow" style="animation-delay: 1.5s;"></div>
+
+    <div class="hidden sm:mb-10 sm:flex sm:justify-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-emerald-700/30 bg-emerald-900/20 px-4 py-1.5 text-sm/6 text-emerald-300 backdrop-blur-sm">
+        <span class="flex size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Announcing our Round of Innovation
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h1 class="text-5xl font-bold tracking-tight text-balance sm:text-7xl lg:text-8xl">
+        <span class="shimmer">When Creativity<br class="hidden sm:inline"/> Meets The Eye</span>
+      </h1>
+      <p class="mt-6 mx-auto max-w-2xl text-lg font-medium text-pretty text-gray-400 sm:text-xl/8 shimmer">
+        a Variate Amount Of Ideas Brings To Tech Life
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="#contact" class="btn-futuristic inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 transition-all">
+          Get Started
+          <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#missions" class="group inline-flex items-center gap-2 text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors">
+          Learn More
+          <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="relative z-10 overflow-hidden py-24 sm:py-32" id="aboutme">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="animate-fade-up mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 rounded-3xl border border-emerald-700/20 bg-emerald-800/40 p-6 backdrop-blur-sm glow-emerald sm:p-10">
+        <div class="lg:pt-4 lg:pr-8">
+          <div class="lg:max-w-lg">
+            <div class="inline-flex items-center gap-2 rounded-full bg-indigo-900/30 px-3 py-1 text-sm/6 font-semibold text-indigo-400 ring-1 ring-indigo-400/20">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              About Me
+            </div>
+            <h2 class="mt-4 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Seif Aldeen Ali</h2>
+            <p class="mt-4 text-lg/8 text-gray-300">A Passionate Polymath Who Wants to Share His Innovations to the Needing Globe</p>
+            <dl class="mt-8 max-w-xl space-y-6 text-base/7 text-gray-400 lg:max-w-none">
+              <div class="relative pl-9">
+                <dt class="inline font-semibold text-white">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-5 text-indigo-400" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                  </svg>
+                  Skills
+                </dt>
+              </div>
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-xl border border-emerald-700/20 bg-emerald-900/20 p-4 backdrop-blur-sm">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Languages</span>
+                  <p class="mt-1 text-sm text-white">Español, عربي, English, Deutsch</p>
+                </div>
+                <div class="rounded-xl border border-emerald-700/20 bg-emerald-900/20 p-4 backdrop-blur-sm">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Science</span>
+                  <p class="mt-1 text-sm text-white">Neuroscience</p>
+                </div>
+                <div class="rounded-xl border border-emerald-700/20 bg-emerald-900/20 p-4 backdrop-blur-sm">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Coding</span>
+                  <p class="mt-1 text-sm text-white">Software Development, AI</p>
+                </div>
+                <div class="rounded-xl border border-emerald-700/20 bg-emerald-900/20 p-4 backdrop-blur-sm">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Social Science</span>
+                  <p class="mt-1 text-sm text-white">Sociology</p>
+                </div>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="flex items-center justify-center">
+          <div class="group relative">
+            <div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-emerald-500/20 to-indigo-500/20 blur-xl transition-all duration-500 group-hover:from-emerald-500/30 group-hover:to-indigo-500/30"></div>
+            <img width="2432" height="1442" src="cap.jpg" alt="Seif Aldeen Ali" class="relative rounded-xl shadow-2xl ring-1 ring-white/10" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="relative z-10" id="missions">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-2xl text-center lg:max-w-none">
+        <div class="inline-flex items-center gap-2 rounded-full bg-indigo-900/30 px-3 py-1 text-sm/6 font-semibold text-indigo-400 ring-1 ring-indigo-400/20">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+            <path d="M10.362 1.093a.75.75 0 00-.724 0L2.523 5.018 10 9.143l7.477-4.125-7.115-3.925zM18 6.443l-7.25 4v8.25l6.862-3.786A.75.75 0 0018 14.25V6.443zm-8.75 12.25v-8.25l-7.25-4v7.807a.75.75 0 00.388.657l6.862 3.786z" />
+          </svg>
+          Mission
+        </div>
+      </div>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Everything You Need For Helping You Out</p>
+      <div class="mt-12 grid gap-6 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+        <div class="card-glow animate-fade-up relative lg:row-span-2 rounded-2xl border border-emerald-700/20 bg-emerald-800/30 backdrop-blur-sm overflow-hidden" style="transition-delay: 0ms;">
+          <div class="absolute top-0 right-0 size-32 bg-emerald-500/5 blur-3xl rounded-full"></div>
+          <div class="px-8 pt-10 pb-6 sm:px-10">
+            <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-emerald-500/10 ring-1 ring-emerald-500/20">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6 text-emerald-400">
+                <path d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="text-lg font-medium tracking-tight text-white">High Quality Information</p>
+            <p class="mt-2 text-sm/6 text-gray-400">Our Information Is Researched Briefly and With Experience</p>
+          </div>
+          <div class="flex items-center justify-center px-8 pb-10 sm:px-10">
+            <img src="bulb.png" alt="" class="size-48 float object-contain" />
+          </div>
+        </div>
+
+        <div class="card-glow animate-fade-up relative rounded-2xl border border-emerald-700/20 bg-emerald-800/30 backdrop-blur-sm overflow-hidden" style="transition-delay: 100ms;">
+          <div class="px-8 pt-10 pb-8 sm:px-10">
+            <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-indigo-500/10 ring-1 ring-indigo-500/20">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6 text-indigo-400">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="text-lg font-medium tracking-tight text-white">Knowledge Enrichment</p>
+            <p class="mt-2 text-sm/6 text-gray-400">The Best Way To Learn More For Yourself</p>
+          </div>
+          <div class="flex items-center justify-center px-8 pb-8 sm:px-10">
+            <img src="stack-of-books.png" alt="" class="size-36 float-delayed object-contain" />
+          </div>
+        </div>
+
+        <div class="card-glow animate-fade-up relative rounded-2xl border border-emerald-700/20 bg-emerald-800/30 backdrop-blur-sm overflow-hidden lg:col-start-2 lg:row-start-2" style="transition-delay: 200ms;">
+          <div class="px-8 pt-10 pb-8 sm:px-10">
+            <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-emerald-500/10 ring-1 ring-emerald-500/20">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6 text-emerald-400">
+                <path d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.833.166l-1.583 1.583M20.25 10.5H18M7.75 12.75a4.5 4.5 0 01-4.5-4.5m4.5 4.5H3.25m13.5 0a4.5 4.5 0 014.5-4.5m-4.5 4.5h4.5m-4.5 0a4.5 4.5 0 01-4.5-4.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="text-lg font-medium tracking-tight text-white">User Friendly</p>
+            <p class="mt-2 text-sm/6 text-gray-400">You Have The Right To Have a Good User Experience With Our Products</p>
+          </div>
+        </div>
+
+        <div class="card-glow animate-fade-up relative lg:row-span-2 rounded-2xl border border-emerald-700/20 bg-emerald-800/30 backdrop-blur-sm overflow-hidden" style="transition-delay: 30ms;">
+          <div class="absolute top-0 left-0 size-32 bg-indigo-500/5 blur-3xl rounded-full"></div>
+          <div class="px-8 pt-10 pb-6 sm:px-10">
+            <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-indigo-500/10 ring-1 ring-emerald-500   ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6 text-indigo-400">
+                <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="text-lg font-medium tracking-tight text-white">Open Source Projects</p>
+            <p class="mt-2 text-sm/6 text-gray-400">Our Projects Are OpenSourced So You Can Modify And Know The SourceCode</p>
+          </div>
+          <div class="flex items-center justify-center px-8 pb-10 sm:px-10">
+            <div class="w-full rounded-xl border border-white/10 bg-gray-900/60 overflow-hidden">
+              <div class="flex items-center gap-2 border-b border-white/10 bg-gray-900/80 px-4 py-2">
+                <span class="size-3 rounded-full bg-red-500/80"></span>
+                <span class="size-3 rounded-full bg-yellow-500/80"></span>
+                <span class="size-3 rounded-full bg-green-500/80"></span>
+                <span class="ml-2 text-xs text-gray-500">We♥️OpenSource.txt</span>
+              </div>
+              <div class="px-4 py-6 text-xs text-gray-500 font-mono">
+                <span class="text-emerald-400">const</span> <span class="text-indigo-400">openSource</span> = {<br/>
+                &nbsp;&nbsp;license: <span class="text-yellow-400">'MIT'</span>,<br/>
+                &nbsp;&nbsp;collaborate: <span class="text-emerald-400">true</span>,<br/>
+                &nbsp;&nbsp;♥: <span class="text-yellow-400">'community'</span><br/>
+                };
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 flex items-center justify-center gap-x-6 pb-24 sm:pb-32">
+      <a href="#contact" class="btn-futuristic inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 transition-all">
+        Get started
+      </a>
+      <a href="#" class="group inline-flex items-center gap-2 text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors">
+        Learn <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="relative z-10 overflow-hidden pb-24 sm:pb-32" id="contact">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="animate-fade-up mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 rounded-3xl border border-emerald-700/20 bg-emerald-800/40 p-6 backdrop-blur-sm glow-emerald sm:p-10">
+        <div class="lg:pt-4 lg:pr-8">
+          <div class="lg:max-w-lg">
+            <div class="inline-flex items-center gap-2 rounded-full bg-indigo-900/30 px-3 py-1 text-sm/6 font-semibold text-indigo-400 ring-1 ring-indigo-400/20">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              Contact Me
+            </div>
+            <h2 class="mt-4 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Let's Work Together</h2>
+            <p class="mt-4 text-lg/8 text-gray-300">I'm always open to new opportunities, collaborations, and conversations.</p>
+            <dl class="mt-8 max-w-xl space-y-6 text-base/7 text-gray-400 lg:max-w-none">
+              <div class="group relative pl-10">
+                <dt class="inline font-semibold text-white">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-6 text-indigo-400 transition-all duration-300 group-hover:text-emerald-400" aria-hidden="true">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                  Email
+                </dt>
+                <dd class="inline text-white transition-all duration-300 group-hover:text-emerald-400">
+                  <a href="mailto:saifalden2error@gmail.com" class="hover:text-emerald-400">wzone541@gmail.com</a>
+                </dd>
+              </div>
+              <div class="group relative pl-10">
+                <dt class="inline font-semibold text-white">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-6 text-indigo-400 transition-all duration-300 group-hover:text-emerald-400" aria-hidden="true">
+                    <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
+                  </svg>
+                  Location
+                </dt>
+                <dd class="inline text-white">Earth — Anywhere</dd>
+              </div>
+              <div class="group relative pl-10">
+                <dt class="inline font-semibold text-white">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-6 text-indigo-400 transition-all duration-300 group-hover:text-emerald-400" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                  GitHub
+                </dt>
+                <dd class="inline">
+                  <a href="https://github.com/saif-alden2error" class="text-white transition-all duration-300 hover:text-emerald-400">github.com/saif-alden2error</a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-4 p-4 sm:p-8">
+          <a href="mailto:wzone541@gmail.com" class="btn-futuristic group relative w-full rounded-full border border-emerald-700/30 bg-emerald-800/30 px-6 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-emerald-700/40">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              Send Email
+            </span>
+          </a>
+          <a href="https://github.com/saif-alden2error" class="btn-futuristic group relative w-full rounded-full border border-emerald-700/30 bg-emerald-800/30 px-6 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-emerald-700/40">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              <img src="github.png" class="size-5" alt="" />
+              GitHub
+            </span>
+          </a>
+          <a href="#" class="btn-futuristic group relative w-full rounded-full border border-emerald-700/30 bg-emerald-800/30 px-6 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-emerald-700/40">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
+                <path d="M3 10a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" />
+                <path d="M3 16a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" />
+              </svg>
+              View Resume
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-emerald-800/30 py-8">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <p class="text-sm text-gray-500">&copy; 2026 Seif Aldeen Ali. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/saif-alden2error" class="text-sm text-gray-500 transition-colors hover:text-emerald-400" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="size-5"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.animate-fade-up').forEach(el => observer.observe(el));
+
+    // Close mobile menu on escape or backdrop click
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) mobileMenu.close();
+    });
+  </script>
+</body>
+</html>
