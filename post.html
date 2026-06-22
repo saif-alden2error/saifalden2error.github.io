@@ -224,11 +224,12 @@
         </a>
       </div>
       <div class="flex lg:hidden">
-        <button type="button" onclick="document.getElementById('mobile-menu').showModal()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200 hover:text-emerald-400 transition-colors" aria-label="Open main menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
+       <div class=" lg:flex lg:flex-1 lg:justify-end">
+        <a href="products.html" class="group inline-flex items-center gap-2 text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors">
+        Get Back
+        <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </a>
+      </div>
       </div>
 
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -247,23 +248,9 @@
         <a href="index.html" class="-m-1.5 p-1.5">
           <span class="text-lg font-bold tracking-tight shimmer">Seif Aldeen Ali</span>
         </a>
-        <button type="button" onclick="document.getElementById('mobile-menu').close()" class="-m-2.5 rounded-md p-2.5 text-gray-200 hover:text-emerald-400 transition-colors" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-      <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-emerald-800/30">
-          <div class="space-y-3 py-6">
-            <a href="products.html" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-emerald-400 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Products</a>
-            <a href="index.html#missions" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Mission</a>
-            <a href="#" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">Support</a>
-            <a href="index.html#aboutme" onclick="document.getElementById('mobile-menu').close()" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-200 hover:bg-emerald-800/30 hover:text-emerald-400 transition-all">About</a>
-          </div>
-        </div>
-      </div>
+
     </div>
+
   </dialog>
 
   <!-- Post Content -->
