@@ -8,6 +8,65 @@
   <style>
     * { scroll-behavior: smooth; }
 
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-Italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-MediumItalic.woff2') format('woff2');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-SemiBoldItalic.woff2') format('woff2');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      src: url('fonts/GoogleSans-BoldItalic.woff2') format('woff2');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    body { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; }
+
     body::before {
       content: '';
       position: fixed;
@@ -188,15 +247,14 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-8">
-        <a href="#" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Products</a>
+        <a href="products.html" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Products</a>
         <a href="#missions" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Mission</a>
         <a href="#" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">Support</a>
         <a href="#aboutme" class="relative text-sm/6 font-semibold text-gray-300 hover:text-emerald-400 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full">About</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="https://github.com/saif-alden2error" class="group relative" aria-label="GitHub Profile">
-          <img src="github.png" class="size-9 rounded-full ring-1 ring-white/10 transition-all duration-300 group-hover:ring-emerald-400/50 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]" alt="GitHub">
-        </a>
+      
+          
       </div>
     </nav>
   </header>
@@ -434,7 +492,7 @@
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                   </svg>
-                  Email
+                  Email:
                 </dt>
                 <dd class="inline text-white transition-all duration-300 group-hover:text-emerald-400">
                   <a href="mailto:saifalden2error@gmail.com" class="hover:text-emerald-400">wzone541@gmail.com</a>
@@ -445,16 +503,16 @@
                   <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-6 text-indigo-400 transition-all duration-300 group-hover:text-emerald-400" aria-hidden="true">
                     <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                   </svg>
-                  Location
+                  Location:
                 </dt>
-                <dd class="inline text-white">Earth — Anywhere</dd>
+                <dd class="inline text-white">Earth — Arab Republic of Egypt (ARE) </dd>
               </div>
               <div class="group relative pl-10">
                 <dt class="inline font-semibold text-white">
                   <svg viewBox="0 0 20 20" fill="currentColor" class="absolute top-1 left-1 size-6 text-indigo-400 transition-all duration-300 group-hover:text-emerald-400" aria-hidden="true">
                     <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
-                  GitHub
+                  GitHub:
                 </dt>
                 <dd class="inline">
                   <a href="https://github.com/saif-alden2error" class="text-white transition-all duration-300 hover:text-emerald-400">github.com/saif-alden2error</a>
@@ -473,12 +531,7 @@
               Send Email
             </span>
           </a>
-          <a href="https://github.com/saif-alden2error" class="btn-futuristic group relative w-full rounded-full border border-emerald-700/30 bg-emerald-800/30 px-6 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-emerald-700/40">
-            <span class="relative z-10 flex items-center justify-center gap-2">
-              <img src="github.png" class="size-5" alt="" />
-              GitHub
-            </span>
-          </a>
+
           <a href="#" class="btn-futuristic group relative w-full rounded-full border border-emerald-700/30 bg-emerald-800/30 px-6 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-emerald-700/40">
             <span class="relative z-10 flex items-center justify-center gap-2">
               <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
